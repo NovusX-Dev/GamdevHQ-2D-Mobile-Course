@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Farground
+    uniqueID: 797764725
+    locked: 0
+  - name: Midground
+    uniqueID: 2396331371
+    locked: 0
+  - name: Ground
+    uniqueID: 3778190253
+    locked: 0
+  - name: Vegitation
+    uniqueID: 207552741
+    locked: 0
