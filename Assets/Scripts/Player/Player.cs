@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    private static Player _instance;
+    public static Player Instance => _instance;
+
     [SerializeField] float _moveSpeed = 10f;
     [SerializeField] float _jumpForce = 10f;
     [SerializeField] float _fallMultiplier = 2.5f, _lowJumpMultiplier = 2f;
@@ -12,26 +15,53 @@ public class Player : MonoBehaviour
 
     private float _xHorizontal;
     private bool _isGrounded;
+    private bool _isJumping;
 
     public float XMove => _xHorizontal;
+    public bool IsJUmping => _isJumping;
+    public bool IsGrounded => _isGrounded;
+    public bool IsGroundAttacking { get; set; }
+   
 
     Rigidbody2D _rb2D;
+    PlayerAnimation _playerAnimation;
 
     private void Awake()
     {
+        _instance = this;
         _rb2D = GetComponent<Rigidbody2D>();
+        _playerAnimation = GetComponentInChildren<PlayerAnimation>();
     }
 
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
         _isGrounded = Physics2D.OverlapCircle(_groundPos.position, 0.1f, _groundMask);
 
-        _xHorizontal = Input.GetAxis("Horizontal");
+        if (!IsGroundAttacking)
+        {
+            Movement();
+        }
+
+        if (Input.GetButtonDown("Fire1") && _isGrounded)
+        {
+            _xHorizontal = 0;
+            IsGroundAttacking = true;
+            _playerAnimation.TriggerAttack();
+        }
+
+        BetterJumpingCalculation();
+        FlipPlayer();
+    }
+
+    private void FixedUpdate()
+    {
+        _rb2D.velocity = new Vector2(_xHorizontal * _moveSpeed, _rb2D.velocity.y);
+    }
+
+    private void Movement()
+    {
+        _xHorizontal = Input.GetAxisRaw("Horizontal");
 
         if (_isGrounded)
         {
@@ -39,15 +69,15 @@ public class Player : MonoBehaviour
             {
                 _rb2D.velocity = Vector2.up * _jumpForce;
             }
-        }
 
-        BetterJumpingCalculation();
-        FlipPlayer();
+            _isJumping = false;
+        }
+        else
+        {
+            _isJumping = true;
+        }
     }
-    private void FixedUpdate()
-    {
-        _rb2D.velocity = new Vector2(_xHorizontal * _moveSpeed, _rb2D.velocity.y);
-    }
+
 
     private void BetterJumpingCalculation()
     {
@@ -65,11 +95,12 @@ public class Player : MonoBehaviour
     {
         if (_xHorizontal < 0)
         {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
+            transform.localScale = new Vector3(-1, 1, 1);
         }
         else if (_xHorizontal > 0)
         {
-            transform.localScale = new Vector3(1f, 1f, 1f);
+            transform.localScale = new Vector3(1, 1, 1); 
         }
     }
-}
+
+}//class

@@ -4,22 +4,25 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
-    Player _player;
+    [SerializeField] Animator _swordAnim;
+
     Animator _anim;
 
     private void Awake()
     {
-        _player = GetComponentInParent<Player>();
         _anim = GetComponent<Animator>();
     }
 
-    void Start()
-    {
-        
-    }
 
     void Update()
     {
-        _anim.SetFloat("xMove", Mathf.Abs(_player.XMove));
+        _anim.SetFloat("xMove", Mathf.Abs(Player.Instance.XMove));
+        _anim.SetBool("jumping", Player.Instance.IsJUmping);
+    }
+
+    public void TriggerAttack()
+    {
+        _anim.SetTrigger("attack");
+        _swordAnim.SetTrigger("swordArcAnim");
     }
 }
