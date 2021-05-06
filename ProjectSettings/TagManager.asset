@@ -8,7 +8,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 3778190253
+    locked: 0
+  - name: Characters
+    uniqueID: 63195467
     locked: 0
   - name: Vegitation
     uniqueID: 207552741
