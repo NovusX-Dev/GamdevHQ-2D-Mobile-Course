@@ -25,7 +25,7 @@ public abstract class Enemy : MonoBehaviour
     {
         _pointA.parent = _waypointsParent;
         _pointB.parent = _waypointsParent;
-        _facingRight = (_pointA.position.x - _pointB.position.x) > 0;
+        _facingRight = (_pointA.position.x - _pointB.position.x) < 0;
     }
 
     protected virtual void Update()
@@ -69,7 +69,7 @@ public abstract class Enemy : MonoBehaviour
     }
 
 
-    public virtual void Attack()
+    protected virtual void Attack()
     {
 
     }

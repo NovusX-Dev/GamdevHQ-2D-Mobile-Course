@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyEvilChica : Enemy
+public class EnemySkeleton : Enemy
 {
-
-   
-
+    
 }//class
