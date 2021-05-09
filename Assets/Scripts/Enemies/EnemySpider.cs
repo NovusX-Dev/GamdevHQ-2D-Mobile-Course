@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class EnemySpider : Enemy, IDamageable
 {
+    [Header("Acid Attack")]
+    [SerializeField] GameObject _acidPrefab;
+    [SerializeField] Transform _attackPos;
+
     public int Health { get; set; }
 
     protected override void Init()
@@ -15,11 +19,30 @@ public class EnemySpider : Enemy, IDamageable
     public void Damage(int damageAmount)
     {
         Health--;
+        _isHit = true;
 
         if (Health < 1)
         {
-            Destroy(gameObject);
+            GetComponent<Collider2D>().enabled = false;
+            _isDead = true;
+            _animator.SetTrigger("die");
+            Destroy(gameObject, 30f);
         }
     }
+
+    protected override void Attack()
+    {
+        base.Attack();
+
+    }
+
+
+    public void SpitAcid()
+    {
+        var acid = Instantiate(_acidPrefab, _attackPos.position, Quaternion.identity);
+        //Instantiate(_acidPrefab, _attackPos.position, Quaternion.identity);
+        acid.GetComponent<AcidAttack>().SetDirection(transform.localScale.x >= 1f ? Vector2.right : Vector2.left);
+    }
+
 
 }//class

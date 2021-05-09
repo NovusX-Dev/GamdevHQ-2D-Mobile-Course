@@ -105,6 +105,7 @@ GameObject:
   - component: {fileID: 6182173272992629954}
   - component: {fileID: 6182173272992629955}
   - component: {fileID: 6182173272992629821}
+  - component: {fileID: 1425802409}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -186,6 +187,19 @@ MonoBehaviour:
   _groundMask:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &1425802409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6182173272992629953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fdbee4d6309d304397bd1b7d68c35e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 3
 --- !u!1 &6182173273386819588
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,7 +344,6 @@ GameObject:
   - component: {fileID: 6508399518627493462}
   - component: {fileID: 6482775605731220922}
   - component: {fileID: 6387842939667656317}
-  - component: {fileID: 6387842939667656318}
   m_Layer: 7
   m_Name: Knight
   m_TagString: Untagged
@@ -437,19 +450,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _swordAnim: {fileID: 6182173273409787911}
---- !u!114 &6387842939667656318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6387842939667656316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c7da684a64b2da49acb939ffff06790, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _attackPower: 1
 --- !u!1 &6388224627697140784
 GameObject:
   m_ObjectHideFlags: 0

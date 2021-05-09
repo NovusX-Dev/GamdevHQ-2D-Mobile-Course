@@ -15,10 +15,15 @@ public class EnemyEvilChica : Enemy, IDamageable
     public void Damage(int damageAmount)
     {
         Health--;
+        _animator.SetTrigger("hit");
+        _isHit = true;
 
         if (Health < 1)
         {
-            Destroy(gameObject);
+            GetComponent<Collider2D>().enabled = false;
+            _isDead = true;
+            _animator.SetTrigger("die");
+            Destroy(gameObject, 30f);
         }
     }
 

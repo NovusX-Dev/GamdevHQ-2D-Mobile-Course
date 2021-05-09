@@ -4,12 +4,19 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
+    #region Variables
+    [Header("Attributes")]
     [SerializeField] protected int _health;
     [SerializeField] protected float _moveSpeed;
     [SerializeField] protected int _gems;
+
+    [Header("Attack")]
     [SerializeField] protected float _attackDistance = 3f;
-    [SerializeField] protected Transform _pointA, _pointB;
+
+    [Header("Movement")]
     [SerializeField] protected Transform _waypointsParent;
+    [SerializeField] protected Transform _pointA, _pointB;
+    
 
     protected Vector3 _targetWaypoint;
     protected float _distanceToPlayer;
@@ -19,6 +26,8 @@ public abstract class Enemy : MonoBehaviour
     protected bool _isWalking = false;
     protected bool _inCombat = false;
     protected bool _isDead = false;
+
+    #endregion
 
     protected Animator _animator;
 
@@ -94,7 +103,7 @@ public abstract class Enemy : MonoBehaviour
 
     protected virtual void Attack()
     {
-
+        _inCombat = true;
     }
 
     protected virtual void CheckDistanceToPlayer()
@@ -111,7 +120,7 @@ public abstract class Enemy : MonoBehaviour
             }
             else
             {
-                _inCombat = true;
+                Attack();
                 var direction = player.transform.localPosition - transform.localPosition;
                 transform.localScale = direction.x > 0 ? Vector3.one : new Vector3(-1, 1, 1);
             }
