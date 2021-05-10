@@ -26,6 +26,7 @@ public class EnemySpider : Enemy, IDamageable
             GetComponent<Collider2D>().enabled = false;
             _isDead = true;
             _animator.SetTrigger("die");
+            InstantiateDiamond();
             Destroy(gameObject, 30f);
         }
     }

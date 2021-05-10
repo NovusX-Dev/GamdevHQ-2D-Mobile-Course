@@ -305,7 +305,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 4
   _moveSpeed: 3
-  _gems: 2
+  _diamondPrefab: {fileID: -7306518340953587399, guid: 0eb9b51581b652b4fb99a268480fbbee, type: 3}
+  _diamondsValue: 3
   _attackDistance: 3
   _waypointsParent: {fileID: 0}
   _pointA: {fileID: 5338446235535895848}

@@ -7,9 +7,12 @@ public class Player : MonoBehaviour
     private static Player _instance;
     public static Player Instance => _instance;
 
+    [Header ("Movement")]
     [SerializeField] float _moveSpeed = 10f;
     [SerializeField] float _jumpForce = 10f;
     [SerializeField] float _fallMultiplier = 2.5f, _lowJumpMultiplier = 2f;
+
+    [Header("References")]
     [SerializeField] Transform _groundPos;
     [SerializeField] LayerMask _groundMask;
 

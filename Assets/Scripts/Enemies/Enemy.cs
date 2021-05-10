@@ -8,7 +8,10 @@ public abstract class Enemy : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] protected int _health;
     [SerializeField] protected float _moveSpeed;
-    [SerializeField] protected int _gems;
+
+    [Header("Diamond")] 
+    [SerializeField] protected Diamond _diamondPrefab;
+    [SerializeField] protected int _diamondsValue;
 
     [Header("Attack")]
     [SerializeField] protected float _attackDistance = 3f;
@@ -17,7 +20,6 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected Transform _waypointsParent;
     [SerializeField] protected Transform _pointA, _pointB;
     
-
     protected Vector3 _targetWaypoint;
     protected float _distanceToPlayer;
     protected bool _facingRight;
@@ -146,6 +148,12 @@ public abstract class Enemy : MonoBehaviour
     public virtual bool GetIsHit()
     {
         return _isHit;
+    }
+
+    protected virtual void InstantiateDiamond()
+    {
+        var diamond = Instantiate(_diamondPrefab.gameObject, transform.position, Quaternion.identity);
+        diamond.GetComponent<Diamond>().SetDiamondValue(_diamondsValue);
     }
     
 }//class
