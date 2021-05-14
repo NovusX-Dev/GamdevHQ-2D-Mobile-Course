@@ -19,11 +19,13 @@ public class Player : MonoBehaviour
     private float _xHorizontal;
     private bool _isGrounded;
     private bool _isJumping;
+    private bool _isDead;
 
     public float XMove => _xHorizontal;
     public bool IsJUmping => _isJumping;
     public bool IsGrounded => _isGrounded;
     public bool IsGroundAttacking { get; set; }
+    public bool IsDead => _isDead;
    
 
     Rigidbody2D _rb2D;
@@ -39,6 +41,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (_isDead) return;
+
         _isGrounded = Physics2D.OverlapCircle(_groundPos.position, 0.1f, _groundMask);
 
         if (!IsGroundAttacking)
@@ -104,6 +108,13 @@ public class Player : MonoBehaviour
         {
             transform.localScale = new Vector3(1, 1, 1); 
         }
+    }
+
+    public void PlayerDeath(PlayerStats stats)
+    {
+        Time.timeScale = 0.5f;
+        _isDead = true;
+        stats.enabled = false;
     }
 
 }//class

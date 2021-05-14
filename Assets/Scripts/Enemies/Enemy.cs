@@ -112,7 +112,7 @@ public abstract class Enemy : MonoBehaviour
     {
         var player = Player.Instance;
 
-        if (player != null)
+        if (player != null && !player.IsDead)
         {
             _distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
 

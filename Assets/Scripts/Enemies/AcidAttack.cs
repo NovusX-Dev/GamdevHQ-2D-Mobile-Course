@@ -23,7 +23,7 @@ public class AcidAttack : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerHealth>().Damage(_attackPower);
+            other.GetComponent<PlayerStats>().Damage(_attackPower);
             Destroy(gameObject);
         }
     }
