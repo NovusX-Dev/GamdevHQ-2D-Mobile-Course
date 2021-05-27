@@ -82,6 +82,10 @@ public class Player : MonoBehaviour
         else
         {
             _isJumping = true;
+            if (Input.GetButtonDown("Fire1") && _isJumping)
+            {
+                _playerAnimation.TriggerAirAttack();
+            }
         }
     }
 
