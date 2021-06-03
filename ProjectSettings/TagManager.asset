@@ -41,6 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Sky
+    uniqueID: 3715666613
+    locked: 0
   - name: Farground
     uniqueID: 797764725
     locked: 0
@@ -55,4 +58,7 @@ TagManager:
     locked: 0
   - name: Vegitation
     uniqueID: 207552741
+    locked: 0
+  - name: ForeGround
+    uniqueID: 2090203597
     locked: 0

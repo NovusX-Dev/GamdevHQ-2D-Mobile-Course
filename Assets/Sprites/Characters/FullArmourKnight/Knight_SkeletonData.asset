@@ -24,8 +24,32 @@ MonoBehaviour:
     multiplyMaterials: []
     screenMaterials: []
   skeletonDataModifiers: []
-  fromAnimation: []
-  toAnimation: []
-  duration: []
-  defaultMix: 0
-  controller: {fileID: 9100000, guid: 76a3c377b3fc8c94c99ac61d475f0a84, type: 2}
+  fromAnimation:
+  - Jump4_Down_Loop
+  - Jump4_Down_Loop
+  - Jump3_Switch
+  - Jump3_Switch
+  - Jump_attack
+  - Jump_attack
+  - Hit_Fly
+  - Hit_Fly
+  toAnimation:
+  - Jump5_Normal_Landing
+  - Jump6_Heavy_Landing
+  - Jump5_Normal_Landing
+  - Jump6_Heavy_Landing
+  - Jump5_Normal_Landing
+  - Jump6_Heavy_Landing
+  - StandUp
+  - Falldown_Loop
+  duration:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  defaultMix: 0.2
+  controller: {fileID: 0}

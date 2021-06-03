@@ -102,7 +102,6 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-
     protected virtual void Attack()
     {
         _inCombat = true;
