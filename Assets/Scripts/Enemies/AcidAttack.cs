@@ -5,7 +5,7 @@ using UnityEngine;
 public class AcidAttack : MonoBehaviour
 {
     [SerializeField] private float _speed = 2f;
-    [SerializeField] private int _attackPower = 1;
+    [SerializeField] private int _attackPower;
 
     private Vector2 _currentDirection;
 

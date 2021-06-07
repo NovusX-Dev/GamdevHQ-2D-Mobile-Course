@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     [Header("References")]
     [SerializeField] Transform _groundPos;
     [SerializeField] LayerMask _groundMask;
+    [SerializeField] Transform _respawnPosition;
+    
 
     private float _xHorizontal;
     private bool _isGrounded;
@@ -37,7 +39,6 @@ public class Player : MonoBehaviour
         _rb2D = GetComponent<Rigidbody2D>();
         _playerAnimation = GetComponentInChildren<PlayerAnimation>();
     }
-
 
     void Update()
     {
@@ -121,4 +122,23 @@ public class Player : MonoBehaviour
         stats.enabled = false;
     }
 
+    public void PlayerRespawn()
+    {
+        _isDead = true;
+        StartCoroutine(RespawnRoutine());
+    }
+
+    IEnumerator RespawnRoutine()
+    {
+        yield return UIManager.Instance.FadeOut(0.25f);
+        Time.timeScale = 0.25f;
+
+        _xHorizontal = 0f;
+        transform.position = _respawnPosition.position;
+
+        Time.timeScale = 1f;
+        yield return new WaitForSeconds(1f);
+        yield return UIManager.Instance.FadeIn(2f);
+        _isDead = false;
+    }
 }//class

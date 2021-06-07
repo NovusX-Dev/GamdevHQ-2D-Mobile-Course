@@ -32,7 +32,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
     {
         if (_isHurt) return;
 
-        _currentHealth--;
+        _currentHealth -= damageAmount;
         if(_currentHealth > 1)
         {
             _playerAnimation.TriggerHurt();
