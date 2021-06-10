@@ -14,7 +14,7 @@ public class EnemySkeleton : Enemy, IDamageable
 
     public void Damage(int damageAmount)
     {
-        Health--;
+        Health -= damageAmount;
         _animator.SetTrigger("hit");
         _isHit = true;
 

@@ -14,6 +14,19 @@ public class SetCameraFollow : MonoBehaviour
 
     void Start()
     {
+        FollowPlayer();
+    }
+
+    private void LateUpdate()
+    {
+        if (!Player.Instance.IsDead)
+        {
+            FollowPlayer();
+        }
+    }
+
+    public void FollowPlayer()
+    {
         _cam.Follow = GameObject.Find("Player Cam Follow").transform;
     }
 

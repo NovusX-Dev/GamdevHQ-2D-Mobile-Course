@@ -18,7 +18,7 @@ public class EnemySpider : Enemy, IDamageable
 
     public void Damage(int damageAmount)
     {
-        Health--;
+        Health -= damageAmount;
         _isHit = true;
 
         if (Health < 1)
@@ -34,7 +34,6 @@ public class EnemySpider : Enemy, IDamageable
     protected override void Attack()
     {
         base.Attack();
-
     }
 
 

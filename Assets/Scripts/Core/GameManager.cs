@@ -19,16 +19,7 @@ public class GameManager : MonoBehaviour
     {
         _instance = this;
     }
-
-    public void SaveCurrency()
-    {
-        PlayerPrefs.SetInt("Diamonds", PlayerStats.Instance.GetDiamondAmount());
-    }
-
-    public void LoadCurrency()
-    {
-        PlayerPrefs.GetInt("Diamonds");
-    }
+   
 
     public void PlayerDeadlyRespwan()
     {

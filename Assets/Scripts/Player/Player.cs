@@ -32,12 +32,18 @@ public class Player : MonoBehaviour
 
     Rigidbody2D _rb2D;
     PlayerAnimation _playerAnimation;
+    SetCameraFollow _virtualCamera;
 
     private void Awake()
     {
         _instance = this;
         _rb2D = GetComponent<Rigidbody2D>();
         _playerAnimation = GetComponentInChildren<PlayerAnimation>();
+    }
+
+    private void Start()
+    {
+        _virtualCamera = GameObject.Find("CM Follow Cam").GetComponent<SetCameraFollow>();
     }
 
     void Update()
@@ -118,6 +124,7 @@ public class Player : MonoBehaviour
     public void PlayerDeath(PlayerStats stats)
     {
         Time.timeScale = 0.5f;
+        _xHorizontal = 0f;
         _isDead = true;
         stats.enabled = false;
     }
@@ -138,7 +145,9 @@ public class Player : MonoBehaviour
 
         Time.timeScale = 1f;
         yield return new WaitForSeconds(1f);
-        yield return UIManager.Instance.FadeIn(2f);
         _isDead = false;
+        _virtualCamera.FollowPlayer();
+        yield return UIManager.Instance.FadeIn(2f);
+        
     }
 }//class

@@ -15,11 +15,11 @@ GameObject:
   - component: {fileID: 981308423091501320}
   m_Layer: 0
   m_Name: Shop_Keeper
-  m_TagString: Untagged
+  m_TagString: Shop_Keeper
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &981308423091501323
 Transform:
   m_ObjectHideFlags: 0
