@@ -31,12 +31,6 @@ public class EnemySpider : Enemy, IDamageable
         }
     }
 
-    protected override void Attack()
-    {
-        base.Attack();
-    }
-
-
     public void SpitAcid()
     {
         var acid = Instantiate(_acidPrefab, _attackPos.position, Quaternion.identity);

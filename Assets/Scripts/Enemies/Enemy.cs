@@ -102,10 +102,7 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    protected virtual void Attack()
-    {
-        _inCombat = true;
-    }
+  
 
     protected virtual void CheckDistanceToPlayer()
     {
@@ -132,6 +129,11 @@ public abstract class Enemy : MonoBehaviour
         }
 
         _animator.SetBool("inCombat", _inCombat);
+    }
+
+    protected virtual void Attack()
+    {
+        _inCombat = true;
     }
 
     public virtual void ResetHitBool()

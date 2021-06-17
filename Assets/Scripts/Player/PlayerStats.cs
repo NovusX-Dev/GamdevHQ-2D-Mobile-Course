@@ -33,11 +33,13 @@ public class PlayerStats : MonoBehaviour, IDamageable
         if (_isHurt) return;
 
         _currentHealth -= damageAmount;
+
         if(_currentHealth > 1)
         {
             _playerAnimation.TriggerHurt();
             StartCoroutine(HurtRoutine());
         }
+
         UIManager.Instance.UpdateLivesDisplay(_currentHealth);
 
         if (_currentHealth < 1)
