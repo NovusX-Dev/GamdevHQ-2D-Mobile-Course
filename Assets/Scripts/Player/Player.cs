@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class Player : MonoBehaviour
 {
@@ -57,7 +58,7 @@ public class Player : MonoBehaviour
             Movement();
         }
 
-        if (Input.GetButtonDown("Fire1") && _isGrounded)
+        if (CrossPlatformInputManager.GetButtonDown("A_Button") && _isGrounded)
         {
             _xHorizontal = 0;
             IsGroundAttacking = true;
@@ -76,10 +77,11 @@ public class Player : MonoBehaviour
     private void Movement()
     {
         _xHorizontal = Input.GetAxisRaw("Horizontal");
+        //_xHorizontal = CrossPlatformInputManager.GetAxisRaw("Horizontal");
 
         if (_isGrounded)
         {
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("Jump") || CrossPlatformInputManager.GetButton("B_Button"))
             {
                 _rb2D.velocity = Vector2.up * _jumpForce;
             }
@@ -89,7 +91,7 @@ public class Player : MonoBehaviour
         else
         {
             _isJumping = true;
-            if (Input.GetButtonDown("Fire1") && _isJumping)
+            if (CrossPlatformInputManager.GetButtonDown("A_Button") && _isJumping)
             {
                 _playerAnimation.TriggerAirAttack();
             }
@@ -103,10 +105,10 @@ public class Player : MonoBehaviour
         {
             _rb2D.velocity += Vector2.up * Physics2D.gravity * (_fallMultiplier - 1) * Time.deltaTime;
         }
-        else if (_rb2D.velocity.y > 0 && !Input.GetButton("Jump"))
+        /*else if (_rb2D.velocity.y > 0 && !Input.GetButton("Jump"))
         {
             _rb2D.velocity += Vector2.up * Physics2D.gravity * (_lowJumpMultiplier - 1) * Time.deltaTime;
-        }
+        }*/
     }
 
     private void FlipPlayer()

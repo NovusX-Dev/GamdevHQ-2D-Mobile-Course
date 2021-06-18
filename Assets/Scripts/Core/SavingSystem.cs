@@ -18,6 +18,7 @@ public class SavingSystem : MonoBehaviour
     private void Awake()
     {
         _instance = this;
+        LoadCurrency();
     }
 
     public void SaveCurrency()
@@ -27,6 +28,7 @@ public class SavingSystem : MonoBehaviour
 
     public void LoadCurrency()
     {
-        PlayerPrefs.GetInt("Diamonds");
+        PlayerStats.Instance.AddDiamonds(PlayerPrefs.GetInt("Diamonds"));
+        UIManager.Instance.UpdateHUDDiamonds(PlayerPrefs.GetInt("Diamonds"));
     }
 }
