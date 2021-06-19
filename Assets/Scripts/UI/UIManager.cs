@@ -40,7 +40,7 @@ public class UIManager : MonoBehaviour
 
     public void UpdateShopDiamonds(int value)
     {
-        _shopDiamondValue.text = $"{value}G";
+        _shopDiamondValue.text = $"{value} G";
     }
 
     public void UpdateLivesDisplay(int remainingLives)

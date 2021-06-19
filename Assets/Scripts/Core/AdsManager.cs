@@ -57,6 +57,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
             case ShowResult.Finished:
                 PlayerStats.Instance.AddDiamonds(100);
                 SavingSystem.Instance.SaveCurrency();
+                UIManager.Instance.UpdateShopDiamonds(PlayerStats.Instance.GetDiamondAmount());
                 break;
             case ShowResult.Failed:
                 Debug.LogWarning("The ad did not finish due to an error.");
