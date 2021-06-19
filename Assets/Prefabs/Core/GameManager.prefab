@@ -14,7 +14,7 @@ GameObject:
   m_Layer: 0
   m_Name: Level End Trigger
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5899905875943667273}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 159.49, y: -8.08, z: 0}
+  m_LocalPosition: {x: 225.97, y: 8.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6045938219627610463}
@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45e48703bd22f2345b4a5b833f6d7ffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetScene: Level 02
+  _targetScene: Level 03
 --- !u!1 &7163813340991453474
 GameObject:
   m_ObjectHideFlags: 0
@@ -82,6 +82,7 @@ GameObject:
   - component: {fileID: 6045938219627610463}
   - component: {fileID: 2220554447693230736}
   - component: {fileID: 311791170029749599}
+  - component: {fileID: 1443829260560328392}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -129,6 +130,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a45850e78d01e94589ea326946d51cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1443829260560328392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7163813340991453474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b92645d55b86594391a333c114a9c84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1330578442306719821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -146,11 +159,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7839577245923368988, guid: c0c90c3342fa3c24bb40a6382111ce59, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.08
+      value: 5.86
       objectReference: {fileID: 0}
     - target: {fileID: 7839577245923368988, guid: c0c90c3342fa3c24bb40a6382111ce59, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.64
+      value: 1.56
       objectReference: {fileID: 0}
     - target: {fileID: 7839577245923368988, guid: c0c90c3342fa3c24bb40a6382111ce59, type: 3}
       propertyPath: m_LocalPosition.z

@@ -18,6 +18,10 @@ public class SavingSystem : MonoBehaviour
     private void Awake()
     {
         _instance = this;
+    }
+
+    private void Start()
+    {
         LoadCurrency();
     }
 
