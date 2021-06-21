@@ -19,7 +19,7 @@ public class LevelEndTrigger : MonoBehaviour
     IEnumerator LoadNextLevel()
     {
         SavingSystem.Instance.SaveCurrency();
-        yield return GameManager.Instance.EndLevel(2f);
+        yield return GameManager.Instance.EndLevel(1f);
         SceneManager.LoadScene("Loading Scene");
     }
 }

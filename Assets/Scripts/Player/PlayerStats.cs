@@ -44,9 +44,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
 
         if (_currentHealth < 1)
         {
-            UIManager.Instance.UpdateLivesDisplay(_currentHealth);
-            _playerAnimation.TriggerDeath();
-            Player.Instance.PlayerDeath(this);
+            StartCoroutine(DeathRoutine());
         }
     }
     
@@ -81,6 +79,16 @@ public class PlayerStats : MonoBehaviour, IDamageable
         _isHurt = true;
         yield return new WaitForSeconds(1f);
         _isHurt = false;
+    }
+
+    IEnumerator DeathRoutine()
+    {
+        UIManager.Instance.UpdateLivesDisplay(_currentHealth);
+        Time.timeScale = 0.5f;
+        _playerAnimation.TriggerDeath();
+        Player.Instance.PlayerDeath(this);
+        yield return new WaitForSeconds(1f);
+        UIManager.Instance.ActivateDeathPanel();
     }
 
 }

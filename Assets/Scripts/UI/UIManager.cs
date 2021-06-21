@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject _shopPanel;
     [SerializeField] TextMeshProUGUI _shopDiamondValue;
     [SerializeField] Image _selectionImage;
+
+    [Header("Death Panel")]
+    [SerializeField] GameObject _deathPanel;
+    [SerializeField] string _mainMenuString;
 
     [Header("References")]
     [SerializeField] CanvasGroup _faderCanvasGroup;
@@ -79,6 +84,31 @@ public class UIManager : MonoBehaviour
     {
         return _shopPanel.activeInHierarchy;
     }
+
+    #region Death panel
+    public void ActivateDeathPanel()
+    {
+        _deathPanel.SetActive(true);
+    }
+
+    public void RestartLevel()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void MainMenu()
+    {
+        LoadingData.sceneToLoad = _mainMenuString;
+        Time.timeScale = 1;
+        SceneManager.LoadScene(1);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+    #endregion
 
     #region Fader
     public void FadeOutImmediate()

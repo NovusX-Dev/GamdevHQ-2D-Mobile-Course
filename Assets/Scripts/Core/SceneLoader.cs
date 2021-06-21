@@ -20,10 +20,16 @@ public class SceneLoader : MonoBehaviour
         {
             if (operation.progress >= 0.9f)
             {
-                operation.allowSceneActivation = true;
+                StartCoroutine(LoadSceneRoutine(operation));
             }
 
             yield return null;
         }
+    }
+
+    IEnumerator LoadSceneRoutine(AsyncOperation operation)
+    {
+        yield return new WaitForSeconds(3f);
+        operation.allowSceneActivation = true;
     }
 }

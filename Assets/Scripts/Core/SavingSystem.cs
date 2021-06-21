@@ -15,6 +15,10 @@ public class SavingSystem : MonoBehaviour
         }
     }
 
+    private const string _jumpForceString = "jumpForce"; 
+
+    public string JumpForceString => _jumpForceString;
+
     private void Awake()
     {
         _instance = this;
@@ -34,5 +38,18 @@ public class SavingSystem : MonoBehaviour
     {
         PlayerStats.Instance.AddDiamonds(PlayerPrefs.GetInt("Diamonds"));
         UIManager.Instance.UpdateHUDDiamonds(PlayerPrefs.GetInt("Diamonds"));
+    }
+
+    public void SaveJumpForce(float force)
+    {
+        PlayerPrefs.SetFloat(_jumpForceString, force);
+    }
+
+    public void LoadJumpForce()
+    {
+        if (PlayerPrefs.HasKey(_jumpForceString))
+        {
+            Player.Instance.SetStatsFloat(PlayerPrefs.GetFloat(_jumpForceString));
+        }
     }
 }

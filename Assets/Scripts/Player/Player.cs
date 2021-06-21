@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     [Header ("Movement")]
     [SerializeField] float _moveSpeed = 10f;
     [SerializeField] float _jumpForce = 10f;
-    [SerializeField] float _fallMultiplier = 2.5f, _lowJumpMultiplier = 2f;
+    [SerializeField] float _fallMultiplier = 2.5f; //_lowJumpMultiplier = 2f;
 
     [Header("References")]
     [SerializeField] Transform _groundPos;
@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     
 
     private float _xHorizontal;
+    private float _currentJumpForce;
     private bool _isGrounded;
     private bool _isJumping;
     private bool _isDead;
@@ -45,6 +46,15 @@ public class Player : MonoBehaviour
     private void Start()
     {
         _virtualCamera = GameObject.Find("CM Follow Cam").GetComponent<SetCameraFollow>();
+
+        if (PlayerPrefs.HasKey(SavingSystem.Instance.JumpForceString))
+        {
+            SavingSystem.Instance.LoadJumpForce();
+        }
+        else
+        {
+            _currentJumpForce = _jumpForce;
+        }
     }
 
     void Update()
@@ -67,6 +77,7 @@ public class Player : MonoBehaviour
 
         BetterJumpingCalculation();
         FlipPlayer();
+
     }
 
     private void FixedUpdate()
@@ -83,7 +94,7 @@ public class Player : MonoBehaviour
         {
             if (Input.GetButtonDown("Jump") || CrossPlatformInputManager.GetButton("B_Button"))
             {
-                _rb2D.velocity = Vector2.up * _jumpForce;
+                _rb2D.velocity = Vector2.up * _currentJumpForce;
             }
 
             _isJumping = false;
@@ -137,6 +148,16 @@ public class Player : MonoBehaviour
         StartCoroutine(RespawnRoutine());
     }
 
+    public void SetStatsFloat(float stat)
+    {
+        _currentJumpForce = stat;
+    }
+
+    public float GetJumpForce()
+    {
+        return _currentJumpForce;
+    }
+
     IEnumerator RespawnRoutine()
     {
         yield return UIManager.Instance.FadeOut(0.25f);
@@ -152,4 +173,5 @@ public class Player : MonoBehaviour
         yield return UIManager.Instance.FadeIn(2f);
         
     }
+
 }//class

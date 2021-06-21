@@ -63,9 +63,23 @@ public class ShopKeeper : MonoBehaviour
     public void BuyItem()
     {
         var playerDiamonds = PlayerStats.Instance.GetDiamondAmount();
-        if (playerDiamonds>= _itemCost)
+        if (playerDiamonds >= _itemCost)
         {
             PlayerStats.Instance.DeductDiamonds(_itemCost);
+            switch (_currentSelectedItem)
+            {
+                case 0:
+                    break;
+                case 1:
+                    Player.Instance.SetStatsFloat(8f);
+                    SavingSystem.Instance.SaveJumpForce(Player.Instance.GetJumpForce());
+                    break;
+                case 2:
+
+                    break;
+
+            }
+            
         }
         else
         {

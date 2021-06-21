@@ -37,7 +37,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsListener
 
     public void OnUnityAdsReady(string placementId)
     {
-        Debug.Log("Rewarded Ad is ready");
+        //
     }
 
     public void OnUnityAdsDidError(string message)
