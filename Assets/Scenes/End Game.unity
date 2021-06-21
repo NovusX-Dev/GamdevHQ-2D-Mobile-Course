@@ -921,13 +921,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'I hope you have enjoyed playing "Knight Slasher" prototype.
+  m_text: 'I hope you have enjoyed playing "Cused Kigdom" prototype.
 
-    This
-    project is part of the GameDevHQ program.
+    This project
+    is part of the GameDevHQ program.
 
-    Feel free to follow me LinkedIn
-    and Medium links below.
+    Feel free to follow me LinkedIn and Medium
+    links below.
 
     Thank you for your time.'
   m_isRightToLeft: 0

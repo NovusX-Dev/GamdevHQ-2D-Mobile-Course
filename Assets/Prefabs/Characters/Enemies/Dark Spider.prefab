@@ -226,8 +226,8 @@ MonoBehaviour:
   _health: 1
   _moveSpeed: 4
   _diamondPrefab: {fileID: -7306518340953587399, guid: 0eb9b51581b652b4fb99a268480fbbee, type: 3}
-  _diamondsValue: 2
-  _attackDistance: 10
+  _diamondsValue: 35
+  _attackDistance: 7
   _waypointsParent: {fileID: 0}
   _pointA: {fileID: 2649055059931441654}
   _pointB: {fileID: 2649055060847525779}

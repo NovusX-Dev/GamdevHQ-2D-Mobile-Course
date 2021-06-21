@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private bool _hasCastleKey = false;
+
     private void Awake()
     {
         _instance = this;
@@ -32,4 +34,15 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(time);
         Time.timeScale = 1f;
     }
+
+    public void CastleKeyStatus(bool active)
+    {
+        _hasCastleKey = active;
+    }
+
+    public bool GetCastleKey()
+    {
+        return _hasCastleKey;
+    }
+
 }

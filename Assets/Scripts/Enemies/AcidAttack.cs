@@ -11,7 +11,7 @@ public class AcidAttack : MonoBehaviour
 
     private void Start()
     {
-        Destroy(gameObject, 10f);
+        Destroy(gameObject, 6f);
     }
 
     private void Update()

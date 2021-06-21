@@ -67,5 +67,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5338446236901006932, guid: a64b08924c358a74ebaeef68439dcb45, type: 3}
+      propertyPath: _diamondsValue
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a64b08924c358a74ebaeef68439dcb45, type: 3}

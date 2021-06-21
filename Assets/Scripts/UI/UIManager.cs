@@ -23,6 +23,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject _deathPanel;
     [SerializeField] string _mainMenuString;
 
+    [Header("Message Panel")]
+    [SerializeField] GameObject _messagePanel;
+    [SerializeField] TextMeshProUGUI _messageText;
+
     [Header("References")]
     [SerializeField] CanvasGroup _faderCanvasGroup;
 
@@ -64,6 +68,7 @@ public class UIManager : MonoBehaviour
        
     }
 
+    #region Shop Panel
     public void UpdateShopSelectionBar(int yPos)
     {
         if (!_selectionImage.gameObject.activeInHierarchy)
@@ -80,10 +85,17 @@ public class UIManager : MonoBehaviour
         _selectionImage.gameObject.SetActive(active);
     }
 
+    public void DeactivateShop()
+    {
+        _shopPanel.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
     public bool IsShopPanelActive()
     {
         return _shopPanel.activeInHierarchy;
     }
+    #endregion
 
     #region Death panel
     public void ActivateDeathPanel()
@@ -108,6 +120,19 @@ public class UIManager : MonoBehaviour
     {
         Application.Quit();
     }
+    #endregion
+
+    #region Message Panel
+
+    public  IEnumerator ActivateMessagePanel(string message)
+    {
+        _messagePanel.SetActive(true);
+        _messageText.text = message;
+        yield return new WaitForSeconds(3f);
+        _messageText.text = "";
+        _messagePanel.SetActive(false);
+    }
+
     #endregion
 
     #region Fader

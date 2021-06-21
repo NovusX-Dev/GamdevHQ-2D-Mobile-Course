@@ -71,6 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetScene: Level 03
+  _needKey: 0
 --- !u!1 &7163813340991453474
 GameObject:
   m_ObjectHideFlags: 0
@@ -82,7 +83,6 @@ GameObject:
   - component: {fileID: 6045938219627610463}
   - component: {fileID: 2220554447693230736}
   - component: {fileID: 311791170029749599}
-  - component: {fileID: 1443829260560328392}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -128,18 +128,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a45850e78d01e94589ea326946d51cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1443829260560328392
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7163813340991453474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b92645d55b86594391a333c114a9c84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1330578442306719821

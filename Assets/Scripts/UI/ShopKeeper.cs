@@ -49,11 +49,11 @@ public class ShopKeeper : MonoBehaviour
                 break;
             case 1:
                 UIManager.Instance.UpdateShopSelectionBar(-25);
-                _itemCost = 400;
+                _itemCost = 200;
                 break;
             case 2:
                 UIManager.Instance.UpdateShopSelectionBar(-146);
-                _itemCost = 150;
+                _itemCost = 400;
                 break;
         }
 
@@ -73,17 +73,20 @@ public class ShopKeeper : MonoBehaviour
                 case 1:
                     Player.Instance.SetStatsFloat(8f);
                     SavingSystem.Instance.SaveJumpForce(Player.Instance.GetJumpForce());
+                    StartCoroutine(UIManager.Instance.ActivateMessagePanel("You can now jump higher!"));
                     break;
                 case 2:
-
+                    GameManager.Instance.CastleKeyStatus(true);
+                    StartCoroutine(UIManager.Instance.ActivateMessagePanel("You have acquired the castle key."));
                     break;
-
             }
+            UIManager.Instance.DeactivateShop();
             
         }
         else
         {
-            Debug.Log("Cannot buy item");
+            StartCoroutine(UIManager.Instance.ActivateMessagePanel("You do not have enough DIAMONDS to buy the item."));
+            UIManager.Instance.DeactivateShop();
         }
         
     }
