@@ -7,6 +7,8 @@ public class LevelEndTrigger : MonoBehaviour
 {
     [SerializeField] private string _targetScene;
     [SerializeField] bool _needKey = false;
+    [SerializeField] AudioClip _clip;
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -31,6 +33,7 @@ public class LevelEndTrigger : MonoBehaviour
 
     IEnumerator LoadNextLevel()
     {
+        AudioManager.Instance.PlayEndLevelSFX(_clip);
         SavingSystem.Instance.SaveCurrency();
         yield return GameManager.Instance.EndLevel(1f);
         SceneManager.LoadScene("Loading Scene");

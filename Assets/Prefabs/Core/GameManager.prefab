@@ -72,6 +72,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetScene: Level 03
   _needKey: 0
+  _clip: {fileID: 8300000, guid: f1b744aebcc4a6342b80d1c0d7752f6c, type: 3}
 --- !u!1 &7163813340991453474
 GameObject:
   m_ObjectHideFlags: 0

@@ -249,6 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _swordAnim: {fileID: 7422803966917992284}
+  _swordSFX: {fileID: 8300000, guid: e3f56214dce04f94c88ab1143044b279, type: 3}
 --- !u!1 &7422803966894958431
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,7 +472,6 @@ MonoBehaviour:
   _moveSpeed: 7
   _jumpForce: 6
   _fallMultiplier: 3.5
-  _lowJumpMultiplier: 3
   _groundPos: {fileID: 7666456269398435281}
   _groundMask:
     serializedVersion: 2

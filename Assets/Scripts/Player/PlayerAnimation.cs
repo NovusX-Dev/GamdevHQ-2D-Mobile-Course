@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour
 {
     [SerializeField] Animator _swordAnim;
+    [SerializeField] AudioClip _swordSFX;
 
     Animator _anim;
 
@@ -40,5 +41,10 @@ public class PlayerAnimation : MonoBehaviour
     public void TriggerHurt()
     {
         _anim.SetTrigger("hurt");
+    }
+
+    public void PlaySwordSFX()
+    {
+        AudioSource.PlayClipAtPoint(_swordSFX, Camera.main.transform.position);
     }
 }
