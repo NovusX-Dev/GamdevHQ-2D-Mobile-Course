@@ -87,8 +87,9 @@ public class Player : MonoBehaviour
 
     private void Movement()
     {
-        _xHorizontal = Input.GetAxisRaw("Horizontal");
-        //_xHorizontal = CrossPlatformInputManager.GetAxisRaw("Horizontal");
+        _xHorizontal = Application.platform == RuntimePlatform.Android ? CrossPlatformInputManager.GetAxisRaw("Horizontal") 
+            : Input.GetAxisRaw("Horizontal");
+
 
         if (_isGrounded)
         {
