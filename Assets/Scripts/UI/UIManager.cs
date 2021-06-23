@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     [Header("HUD")]
     [SerializeField] TextMeshProUGUI _diamondValue;
     [SerializeField] GameObject[] _lives = null;
+    [SerializeField] GameObject _optionsPanel;
 
     [Header("Shop Keeper")]
     [SerializeField] GameObject _shopPanel;
@@ -66,6 +67,19 @@ public class UIManager : MonoBehaviour
             }
         }
        
+    }
+
+    public void OptionsPanel()
+    {
+        _optionsPanel.SetActive(!_optionsPanel.activeInHierarchy);
+        if (_optionsPanel.activeInHierarchy)
+        {
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            Time.timeScale = 1f;
+        }
     }
 
     #region Shop Panel
