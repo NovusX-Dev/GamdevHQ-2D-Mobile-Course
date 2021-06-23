@@ -59,11 +59,11 @@ public class AudioManager : MonoBehaviour
         _atmosphereSource.Play();
     }
 
-    public void PlaySFX(AudioClip _clip)
+    public void PlaySFX(AudioClip _clip, float volume)
     {
         _sfxSource.clip = _clip;
         _sfxSource.pitch = Random.Range(0.65f, 0.95f);
-        _sfxSource.volume = 0.75f;
+        _sfxSource.volume = volume;
         _sfxSource.Play();
     }
 

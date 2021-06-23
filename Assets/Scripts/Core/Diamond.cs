@@ -21,7 +21,7 @@ public class Diamond : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            AudioManager.Instance.PlaySFX(_clip);
+            AudioManager.Instance.PlaySFX(_clip, 0.3f);
             other.GetComponent<PlayerStats>().AddDiamonds(_value);
             Destroy(gameObject);
         }
